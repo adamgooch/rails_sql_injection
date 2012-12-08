@@ -1,0 +1,17 @@
+<h1>Friends</h1>
+<div>
+  <%= link_to "Create a new friend", new_friend_path %> <br />
+  <%= link_to "Find a friend", friends_find_path %> <br />
+</div>
+<table class="pretty">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+  <% for friend in @friends %>
+    <tr>
+      <td><%= friend.name %></td>
+      <td><%= friend.email %></td>
+    </tr>
+  <% end %>
+</table>
