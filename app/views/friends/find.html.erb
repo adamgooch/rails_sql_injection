@@ -1,6 +1,6 @@
 <h1>Find A Friend</h1>
 <%= form_tag friends_find_path, :method => 'get' do %>
-  <%= text_field_tag :search, params[:search] %>
+  <%= text_field_tag :search, params[:search], :size => 150 %>
   <%= submit_tag "Search", :name => nil %>
 <% end %>
 <table class="pretty">
@@ -10,8 +10,9 @@
   </tr>
   <% for friend in @friends %>
     <tr>
-      <td><%= friend.name %></td>
-      <td><%= friend.email %></td>
+      <td><%= friend["name"] %></td>
+      <td><%= friend["email"] %></td>
     </tr>
   <% end %>
 </table>
+<%= link_to "Back To Friends", friends_path %>
