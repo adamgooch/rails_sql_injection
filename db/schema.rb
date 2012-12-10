@@ -20,4 +20,39 @@ ActiveRecord::Schema.define(:version => 20121207194809) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "menu_items", :force => true do |t|
+    t.string   "name"
+    t.string   "item_type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "restaurant_id"
+  end
+
+  add_index "menu_items", ["restaurant_id"], :name => "index_menu_items_on_restaurant_id"
+
+  create_table "menus", :force => true do |t|
+    t.string   "item"
+    t.string   "type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "orders", :force => true do |t|
+    t.string   "orderer"
+    t.string   "entree"
+    t.string   "side_item"
+    t.string   "drink"
+    t.string   "modifier"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "restaurant_id"
+  end
+
+  create_table "restaurants", :force => true do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
 end

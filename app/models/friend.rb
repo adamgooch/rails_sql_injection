@@ -3,7 +3,9 @@ class Friend < ActiveRecord::Base
 
   def self.search query
     if query
-      find(:all, :conditions => ["name LIKE ?", '%' + query + '%'])
+      #self.connection.execute("SELECT * FROM Friends WHERE name LIKE '%" + query + "%'")
+      find(:all, :conditions => "name LIKE '%#{query}%'")
+      #find(:all, :conditions => ['name LIKE ?', query])
     else
       find(:all)
     end
